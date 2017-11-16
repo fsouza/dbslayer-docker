@@ -15,4 +15,4 @@ FROM alpine:3.6
 RUN apk add --no-cache apr mariadb-client-libs apr-util
 COPY --from=build /dbslayer/server/dbslayer /usr/bin/dbslayer
 
-ENTRYPOINT ["/usr/bin/dbslayer"]
+ENTRYPOINT ["/usr/bin/dbslayer", "-d", "1"]
