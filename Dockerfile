@@ -13,6 +13,8 @@ RUN     make
 
 FROM alpine:3.6
 RUN apk add --no-cache apr mariadb-client-libs apr-util
+ADD my.cnf.template /etc/my.cnf.template
+ADD entrypoint.sh /entrypoint.sh
 COPY --from=build /dbslayer/server/dbslayer /usr/bin/dbslayer
 
-ENTRYPOINT ["/usr/bin/dbslayer", "-d", "1"]
+ENTRYPOINT ["/entrypoint.sh"]
