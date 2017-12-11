@@ -20,8 +20,6 @@ if [ -z "$MYSQL_DATABASE" ]; then
 	exit 2
 fi
 
-MYSQL_PORT=${MYSQL_PORT:-3306}
-
 sed "s/@@HOST@@/$MYSQL_HOST/" /etc/my.cnf.template | \
 	sed "s/@@PORT@@/$MYSQL_PORT/" | \
 	sed "s/@@USER@@/$MYSQL_USER/" | \

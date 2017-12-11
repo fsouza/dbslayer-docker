@@ -17,4 +17,6 @@ ADD my.cnf.template /etc/my.cnf.template
 ADD entrypoint.sh /entrypoint.sh
 COPY --from=build /dbslayer/server/dbslayer /usr/bin/dbslayer
 
+ENV MYSQL_PORT 3306
+
 ENTRYPOINT ["/entrypoint.sh"]
