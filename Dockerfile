@@ -1,4 +1,4 @@
-FROM alpine:3.10.0 AS build
+FROM alpine:3.10.1 AS build
 
 ENV DBSLAYER_VERSION d19e489ef221ebe0b097b8755e6fe32b8b4a61bc
 
@@ -10,7 +10,7 @@ RUN     tar --strip 1 -xzf /dbslayer.tar.gz
 RUN     ./configure
 RUN     make
 
-FROM alpine:3.10.0
+FROM alpine:3.10.1
 RUN  apk add --no-cache apr mariadb-client apr-util
 ADD  my.cnf.template /etc/my.cnf.template
 ADD  entrypoint.sh /entrypoint.sh
