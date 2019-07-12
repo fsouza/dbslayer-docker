@@ -10,7 +10,7 @@ steps:
   - name: test-dockerfile
     image: plugins/docker
     settings:
-      repo: fsouza/dbslayer-docker
+      repo: fsouza/dbslayer
       dry_run: true
     when:
       event: pull_request
@@ -18,7 +18,7 @@ steps:
   - name: build-and-push-to-dockerhub
     image: plugins/docker
     settings:
-      repo: dbslayer/docker
+      repo: fsouza/dbslayer
       auto_tag: true
       username:
         from_secret: docker_username
